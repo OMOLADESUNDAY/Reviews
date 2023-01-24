@@ -5,23 +5,26 @@ const buttonlogo='<'
 const buttonlogo2 = ">";
 const Review = () => {
     const [index, setIndex] = useState(0);
-    const { id, name, image, description } = review[index];
+    const { name, image, description } = review[index];
+    const checkNumber=(number)=>{
+      if(number>review.length-1){
+        return 0
+      }
+      if(number<0){
+        return review.length-1
+      }
+      return number
+    }
     const prevbutton=()=>{
         setIndex((index)=>{
-            if (index < 0) {
-                
-            }
           let newIndex = index - 1;
-          return newIndex;
+          return checkNumber(newIndex);
         })
     }
     const nextbutton = () => {
         setIndex((index) =>{
-            if (index > review.length) {
-                    
-            }
             let newIndex=index + 1;
-            return newIndex
+            return checkNumber(newIndex)
         } );
     };
     return (
