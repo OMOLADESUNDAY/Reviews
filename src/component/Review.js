@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { review } from '../data/review';
+import './review.css'
 const buttonlogo='<'
 const buttonlogo2 = ">";
 const Review = () => {
@@ -28,18 +29,25 @@ const Review = () => {
         } );
     };
     return (
-    <div style={{transition:'ease-in 0.5s'}}>
-      <img
-        src={image}
-        style={{ width: "50px", height: "50px", objectFit: "cover" }}
-        alt={name}
-      />
-      <h2>{name}</h2>
-      <p>{description}</p>
-      <button onClick={prevbutton}> {buttonlogo} </button>
-      <button onClick={nextbutton}> {buttonlogo2} </button>
-    </div>
-  );
+      <div className="review_container">
+        <div className="image_container">
+          <img className="image" src={image} alt={name} />
+        </div>
+
+        <h2 className="name">{name}</h2>
+        <p className="description">{description}</p>
+        <div className="btn_container">
+          <button className="prev_button" onClick={prevbutton}>
+            {" "}
+            {buttonlogo}{" "}
+          </button>
+          <button className="next_button" onClick={nextbutton}>
+            {" "}
+            {buttonlogo2}{" "}
+          </button>
+        </div>
+      </div>
+    );
 }
 
 export default Review
